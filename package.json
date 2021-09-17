@@ -18,7 +18,10 @@
   "author": "Gregor Martynus (https://dev.to/gr2m)",
   "license": "ISC",
   "dependencies": {
-    "@octoherd/cli": "^3.4.2"
+    "@octoherd/cli": "^3.4.2",
+    "@octokit/plugin-create-or-update-text-file": "^1.0.4",
+    "js-yaml": "^4.1.0",
+    "matcher": "^4.0.0"
   },
   "devDependencies": {},
   "release": {
