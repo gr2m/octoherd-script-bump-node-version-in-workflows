@@ -1,0 +1,29 @@
+{
+  "name": "octoherd-script-bump-node-version-in-workflows",
+  "version": "0.0.0-development",
+  "type": "module",
+  "exports": "./script.js",
+  "bin": {
+    "octoherd-script-bump-node-version-in-workflows": "./cli.js"
+  },
+  "description": "Octoherd script to set the node-version input for actions/setup-node to the latest LTS major version",
+  "scripts": {
+    "start": "node cli.js",
+    "test": "node script.js"
+  },
+  "repository": "https://github.com/gr2m/octoherd-script-bump-node-version-in-workflows",
+  "keywords": [
+    "octoherd-script"
+  ],
+  "author": "Gregor Martynus (https://dev.to/gr2m)",
+  "license": "ISC",
+  "dependencies": {
+    "@octoherd/cli": "^3.4.2"
+  },
+  "devDependencies": {},
+  "release": {
+    "branches": [
+      "main"
+    ]
+  }
+}
