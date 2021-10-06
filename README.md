@@ -25,7 +25,7 @@ npx octoherd-script-bump-node-version-in-workflows \
   --workflow release.yml
 ```
 
-The script uses [`js-yaml`](https://github.com/nodeca/js-yaml), so the updated YAML code might also include **formatting changes**. Unfortunately the parsing and then searializing using `js-yaml` **removes all comments**. But the script will only update a file if a node-version was actually changed.
+The script uses [`js-yaml`](https://github.com/nodeca/js-yaml), so the updated YAML code might also include **formatting changes**. Unfortunately the parsing and then serializing using `js-yaml` **removes all comments**. But the script will only update a file if a node-version was actually changed.
 
 If `node-version` is set to a value which includes a `${{ ... }}` placeholder then it's not updated.
 
