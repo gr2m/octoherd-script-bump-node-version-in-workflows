@@ -85,7 +85,7 @@ export async function script(
           return content;
         }
 
-        if (!config.jobs) {
+        if (!config?.jobs) {
           octokit.log.warn(`No jobs in ${name}`);
           return content;
         }
