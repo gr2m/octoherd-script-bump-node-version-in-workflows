@@ -10,14 +10,17 @@ import yaml from "js-yaml";
  * @param {import('@octoherd/cli').Octokit} octokit
  * @param {import('@octoherd/cli').Repository} repository
  * @param {object} options
- * @param {number} [options.version] Defaults to latest Node LTS major version
+ * @param {number | string} [options.nodeVersion] Defaults to latest Node LTS major version
  * @param {string} [options.workflow] workflow file name or pattern to only update a subset of workflows
  */
 export async function script(
   octokit,
   repository,
-  { version = 16, workflow = "*" }
+  { nodeVersion = "", workflow = "*" }
 ) {
+  if (!nodeVersion) {
+    throw new Error(`--node-version is required`);
+  }
   if (repository.archived) {
     octokit.log.info(`Repository is archived, ignoring`);
     return;
@@ -105,10 +108,10 @@ export async function script(
                 }
               }
 
-              if (Number(step.with["node-version"]) === version) continue;
+              if (Number(step.with["node-version"]) === nodeVersion) continue;
               if (String(step.with["node-version"]).includes("${{")) continue;
 
-              step.with["node-version"] = version;
+              step.with["node-version"] = nodeVersion;
               nodeVersionChanged = true;
             }
           }
@@ -120,7 +123,7 @@ export async function script(
           quotingType: '"',
         });
       },
-      message: `build(${name}): set node-version to ${version}`,
+      message: `build(${name}): set node-version to ${nodeVersion}`,
     });
 
     if (updated) {

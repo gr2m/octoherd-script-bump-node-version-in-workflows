@@ -21,7 +21,7 @@ Pass all options as CLI flags to avoid user prompts
 npx octoherd-script-bump-node-version-in-workflows \
   -T ghp_0123456789abcdefghjklmnopqrstuvwxyzA \
   -R "gr2m/*" \
-  --version 16 \
+  --node-version 16 \
   --workflow release.yml
 ```
 
@@ -35,7 +35,7 @@ I run the script against all [@octokit repositories](https://github.com/orgs/oct
 
 | option                       | type             | description                                                                                                                                                                                                                                 |
 | ---------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--version`                  | number           | Defaults to latest Node LTS major version (v16). You can set it to [`lts/*`](https://github.com/actions/setup-node#supported-version-syntax) to always get the latest LTS version if you prefer                                             |
+| `--node-version`             | number           | **Required** May be set to `lts/*`. See [all supported versions](https://github.com/actions/setup-node#supported-version-syntax)                                                                                                            |
 | `--workflow`                 | string           | workflow file name or pattern to only update a subset of workflows. [matcher](https://github.com/sindresorhus/matcher#usage) is used for matching. Defaults to `*`                                                                          |
 | `--octoherd-token`, `-T`     | string           | A personal access token ([create](https://github.com/settings/tokens/new?scopes=repo)). Script will create one if option is not set                                                                                                         |
 | `--octoherd-repos`, `-R`     | array of strings | One or multiple space-separated repositories in the form of `repo-owner/repo-name`. `repo-owner/*` will find all repositories for one owner. `*` will find all repositories the user has access to. Will prompt for repositories if not set |
