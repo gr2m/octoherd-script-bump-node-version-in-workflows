@@ -21,7 +21,7 @@ Pass all options as CLI flags to avoid user prompts
 npx octoherd-script-bump-node-version-in-workflows@latest \
   -T ghp_0123456789abcdefghjklmnopqrstuvwxyzA \
   -R "gr2m/*" \
-  --node-version 16 \
+  --node-version "lts/*" \
   --workflow release.yml
 ```
 
